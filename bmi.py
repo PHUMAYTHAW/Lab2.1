@@ -1,3 +1,4 @@
+#exercise 1
 def calculate_bmi(weight,height):
     print("Height="+str(height))
     print("Weight="+str(weight))
