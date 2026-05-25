@@ -1,46 +1,30 @@
-# Function to display main menu prompt
 def display_main_menu():
-    print("Enter some numbers separated by commas (e.g. 5, 67, 32)")
+    print("Enter some numbers separated by commas (e.g. 5,67,32): ")
 
-# Function to get user input, split it, convert to floats, and return a list
 def get_user_input():
     user_input = input()
-    str_list = user_input.split(",")
-    float_list = [float(x.strip()) for x in str_list]
+    string_list = user_input.split(",")
+    float_list = [float(x.strip()) for x in string_list]
     return float_list
 
-# Function to calculate average of a list of numbers
-def calc_average(numbers):
-    return sum(numbers) / len(numbers)
+def calc_average_temperature(numbers):
+    average = sum(numbers) / len(numbers)
+    print("Average temperature:", average)
+    return average
 
-# Function to find minimum and maximum from a list
-def find_min_max(numbers):
-    return [min(numbers), max(numbers)]
+def calc_min_max_temperature(numbers):
+    min_temperature = min(numbers)
+    max_temperature = max(numbers)
+    print("Minimum temperature:", min_temperature)
+    print("Maximum temperature:", max_temperature)
+    return min_temperature, max_temperature
 
-# Function to sort the list in ascending order
-def sort_temperature(numbers):
-    return sorted(numbers)
+def main():
+    display_main_menu()
+    numbers = get_user_input()
+    print("Numbers entered:", numbers)
+    calc_average_temperature(numbers)
+    calc_min_max_temperature(numbers)
 
-# Function to calculate median
-def calc_median_temperature(numbers):
-    sorted_list = sorted(numbers)
-    n = len(sorted_list)
-    mid = n // 2
-    if n % 2 == 0:
-        return (sorted_list[mid-1] + sorted_list[mid]) / 2
-    else:
-        return sorted_list[mid]
-
-# Example usage
-display_main_menu()
-temps = get_user_input()
-
-average = calc_average(temps)
-min_max = find_min_max(temps)
-sorted_temps = sort_temperature(temps)
-median = calc_median_temperature(temps)
-
-print("Average temperature:", average)
-print("Minimum and Maximum temperatures:", min_max)
-print("Sorted temperatures:", sorted_temps)
-print("Median temperature:", median)
+if __name__ == "__main__":
+    main()
